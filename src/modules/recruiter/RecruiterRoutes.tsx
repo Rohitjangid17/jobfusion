@@ -5,6 +5,8 @@ import Candidates from "./candidates/Candidates";
 import Applications from "./applications/Applications";
 import Interviews from "./interviews/Interviews";
 import Messages from "./messages/Messages";
+import Support from "./support/Support";
+import Settings from "./settings/Settings";
 
 const RecruiterRoutes = (
     <>
@@ -15,6 +17,8 @@ const RecruiterRoutes = (
         <Route path="applications" element={<Applications />} />
         <Route path="interviews" element={<Interviews />} />
         <Route path="messages" element={<Messages />} />
+        <Route path="support" element={<Support />} />
+        <Route path="settings" element={<Settings />} />
     </>
 );
 

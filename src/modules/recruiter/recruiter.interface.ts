@@ -48,3 +48,14 @@ export interface Interview {
     type: "Video Call" | "Phone Call" | "In Person";
     status: "Upcoming" | "Completed" | "Cancelled" | "Rescheduled";
 }
+
+export interface SupportTicket {
+    key: number;
+    ticketId: string;
+    subject: string;
+    category: | "Account" | "Jobs" | "Applications" | "Interviews" | "Technical" | "Billing";
+    priority: "Low" | "Medium" | "High";
+    createdDate: string;
+    lastUpdated: string;
+    status: "Open" | "In Progress" | "Resolved" | "Closed";
+}
