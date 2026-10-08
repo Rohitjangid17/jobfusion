@@ -7,6 +7,8 @@ import Interviews from "./interviews/Interviews";
 import Messages from "./messages/Messages";
 import Support from "./support/Support";
 import Settings from "./settings/Settings";
+import Profile from "./profile/Profile";
+import CompanyProfile from "./company-profile/CompanyProfile";
 
 const RecruiterRoutes = (
     <>
@@ -17,6 +19,8 @@ const RecruiterRoutes = (
         <Route path="applications" element={<Applications />} />
         <Route path="interviews" element={<Interviews />} />
         <Route path="messages" element={<Messages />} />
+        <Route path="company-profile" element={<CompanyProfile />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="support" element={<Support />} />
         <Route path="settings" element={<Settings />} />
     </>
