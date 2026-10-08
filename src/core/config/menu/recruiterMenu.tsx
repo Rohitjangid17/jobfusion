@@ -1,7 +1,8 @@
-import { DashboardOutlined, UserOutlined, BankOutlined, ProfileOutlined, FileDoneOutlined, BarChartOutlined, SettingOutlined, IdcardOutlined, CustomerServiceOutlined, MessageOutlined, CalendarOutlined, SolutionOutlined, } from "@ant-design/icons";
+import { DashboardOutlined, SolutionOutlined, UserOutlined, FileDoneOutlined, CalendarOutlined, MessageOutlined, BarChartOutlined, FundProjectionScreenOutlined, PieChartOutlined, TeamOutlined, RiseOutlined, BankOutlined, IdcardOutlined, CustomerServiceOutlined, SettingOutlined, } from "@ant-design/icons";
 import type { MenuItem } from "../../../shared/interfaces";
 
 export const RECRUITER_MENU_ITEMS: MenuItem[] = [
+    // Dashboard
     {
         key: "/recruiter/dashboard",
         icon: <DashboardOutlined style={{ fontSize: 18 }} />,
@@ -11,8 +12,8 @@ export const RECRUITER_MENU_ITEMS: MenuItem[] = [
     // Jobs
     {
         key: "/recruiter/jobs",
-        icon: <ProfileOutlined style={{ fontSize: 18 }} />,
-        label: "Jobs"
+        icon: <SolutionOutlined style={{ fontSize: 18 }} />,
+        label: "Jobs",
     },
 
     // Candidates
@@ -43,13 +44,6 @@ export const RECRUITER_MENU_ITEMS: MenuItem[] = [
         label: "Messages",
     },
 
-    // Notifications
-    // {
-    //     key: "/recruiter/notifications",
-    //     icon: <BellOutlined style={{ fontSize: 18 }} />,
-    //     label: "Notifications",
-    // },
-
     // Reports
     {
         key: "/recruiter/reports",
@@ -57,19 +51,29 @@ export const RECRUITER_MENU_ITEMS: MenuItem[] = [
         label: "Reports",
         children: [
             {
-                key: "/recruiter/reports/jobs",
-                icon: <ProfileOutlined />,
-                label: "Jobs",
+                key: "/recruiter/reports/job-performance",
+                icon: <FundProjectionScreenOutlined />,
+                label: "Job Performance",
             },
             {
-                key: "/recruiter/reports/applications",
-                icon: <FileDoneOutlined />,
-                label: "Applications",
+                key: "/recruiter/reports/application-analytics",
+                icon: <PieChartOutlined />,
+                label: "Application Analytics",
             },
             {
-                key: "/recruiter/reports/hiring",
-                icon: <SolutionOutlined />,
-                label: "Hiring",
+                key: "/recruiter/reports/candidate-analytics",
+                icon: <TeamOutlined />,
+                label: "Candidate Analytics",
+            },
+            {
+                key: "/recruiter/reports/hiring-analytics",
+                icon: <RiseOutlined />,
+                label: "Hiring Analytics",
+            },
+            {
+                key: "/recruiter/reports/interview-analytics",
+                icon: <CalendarOutlined />,
+                label: "Interview Analytics",
             },
         ],
     },
