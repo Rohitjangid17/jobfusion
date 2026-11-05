@@ -3,6 +3,7 @@ import Home from "./home/Home";
 import Features from "./features/Features";
 import Solutions from "./solutions/Solutions";
 import Pricing from "./pricing/Pricing";
+import About from "./about/About";
 
 const PagesRoutes = (
   <>
@@ -11,6 +12,7 @@ const PagesRoutes = (
     <Route path="/features" element={<Features />} />
     <Route path="/solutions" element={<Solutions />} />
     <Route path="/pricing" element={<Pricing />} />
+    <Route path="/about" element={<About />} />
   </>
 );
 
