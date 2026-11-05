@@ -321,10 +321,10 @@ const Features = () => {
 
                     <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
                         <a
-                            href="/register"
+                            href="/request-demo"
                             className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#635BFF] px-7 py-4 text-sm font-semibold text-white no-underline shadow-lg shadow-indigo-200 transition-all hover:-translate-y-1 hover:bg-[#5148E5]"
                         >
-                            Get Started Free <ArrowRightOutlined />
+                            Request a Demo <ArrowRightOutlined />
                         </a>
                         <a
                             href="/contact"
@@ -455,10 +455,10 @@ const Features = () => {
                             </div>
 
                             <a
-                                href="/register"
+                                href="/request-demo"
                                 className="mt-9 inline-flex items-center gap-3 text-sm font-bold text-[#635BFF] no-underline hover:gap-4"
                             >
-                                Get started <ArrowRightOutlined />
+                                Request a Demo <ArrowRightOutlined />
                             </a>
                         </div>
 
@@ -603,10 +603,10 @@ const Features = () => {
                         </p>
 
                         <a
-                            href="/register"
+                            href="/request-demo"
                             className="mt-9 inline-flex items-center gap-3 rounded-xl bg-white px-7 py-4 text-sm font-bold text-[#635BFF] no-underline transition-all hover:-translate-y-1 hover:bg-indigo-50"
                         >
-                            Get Started Free <ArrowRightOutlined />
+                            Request a Demo <ArrowRightOutlined />
                         </a>
                     </div>
                 </div>

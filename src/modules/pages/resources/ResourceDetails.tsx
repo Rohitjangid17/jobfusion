@@ -528,10 +528,10 @@ const ResourceDetails = () => {
                 Bring your recruitment workflow together with JobFusion.
               </p>
               <Link
-                to="/register"
+                to="/request-demo"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#635BFF] hover:gap-3"
               >
-                Get started <ArrowRightOutlined />
+                Request a Demo <ArrowRightOutlined />
               </Link>
             </div>
           </aside>
@@ -720,10 +720,10 @@ const ResourceDetails = () => {
             together with JobFusion.
           </p>
           <Link
-            to="/register"
+            to="/request-demo"
             className="mt-8 inline-flex items-center gap-3 rounded-xl bg-white px-7 py-3.5 font-bold text-[#635BFF] transition hover:bg-purple-50"
           >
-            Get Started Free <ArrowRightOutlined />
+            Request a Demo <ArrowRightOutlined />
           </Link>
         </div>
       </section>

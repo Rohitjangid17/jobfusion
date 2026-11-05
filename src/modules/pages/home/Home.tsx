@@ -465,10 +465,10 @@ const Home = () => {
             {/* CTA Buttons */}
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
-                href="/register"
+                href="/request-demo"
                 className="inline-flex h-13 items-center justify-center gap-3 rounded-xl bg-[#635BFF] px-7 py-4 text-sm font-semibold text-white no-underline shadow-lg shadow-indigo-200 transition-all duration-300 hover:-translate-y-1 hover:bg-[#5148E5]"
               >
-                Get Started Free
+                Request a Demo
                 <ArrowRightOutlined />
               </a>
 
@@ -973,10 +973,10 @@ const Home = () => {
 
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <a
-                href="/register"
+                href="/request-demo"
                 className="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-7 py-4 text-sm font-bold text-[#635BFF] no-underline transition-all hover:-translate-y-1 hover:bg-indigo-50"
               >
-                Get Started Free <ArrowRightOutlined />
+                Request a Demo <ArrowRightOutlined />
               </a>
 
               <a

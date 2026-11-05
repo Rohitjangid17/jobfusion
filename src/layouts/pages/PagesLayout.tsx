@@ -98,10 +98,10 @@ const PagesLayout = () => {
                         <Button
                             type="primary"
                             size="large"
-                            href="/register"
+                            href="/request-demo"
                             className="!h-11 !rounded-xl !border-0 !bg-[#635BFF] !px-5 !text-sm !font-semibold shadow-md shadow-indigo-100 hover:!bg-[#5148e5]"
                         >
-                            Get Started <ArrowRightOutlined />
+                            Request a Demo <ArrowRightOutlined />
                         </Button>
                     </div>
 
@@ -162,11 +162,11 @@ const PagesLayout = () => {
                         block
                         type="primary"
                         size="large"
-                        href="/register"
+                        href="/request-demo"
                         onClick={closeMenu}
                         className="!h-11 !rounded-xl !border-0 !bg-[#635BFF] !font-semibold"
                     >
-                        Get Started <ArrowRightOutlined />
+                        Request a Demo <ArrowRightOutlined />
                     </Button>
                 </div>
             </Drawer>
@@ -260,10 +260,10 @@ const PagesLayout = () => {
                         </div>
 
                         <Link
-                            to="/register"
+                            to="/request-demo"
                             className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#635BFF] px-6 py-3 text-sm font-semibold text-white no-underline transition-all hover:bg-[#5148e5]"
                         >
-                            Get Started <ArrowRightOutlined />
+                            Request a Demo <ArrowRightOutlined />
                         </Link>
                     </div>
                 </div>

@@ -128,10 +128,10 @@ const Solutions = () => {
 
                     <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
                         <a
-                            href="/register"
+                            href="/request-demo"
                             className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#635BFF] px-7 py-4 font-semibold text-white shadow-lg shadow-purple-200 transition hover:-translate-y-1 hover:bg-[#5148e5]"
                         >
-                            Get Started Free <ArrowRightOutlined />
+                            Request a Demo <ArrowRightOutlined />
                         </a>
 
                         <a
@@ -224,10 +224,10 @@ const Solutions = () => {
                                     </div>
 
                                     <a
-                                        href="/register"
+                                        href="/request-demo"
                                         className="mt-9 inline-flex w-fit items-center gap-2 font-semibold text-[#635BFF] transition hover:gap-3"
                                     >
-                                        Get started <ArrowRightOutlined />
+                                        Request a Demo <ArrowRightOutlined />
                                     </a>
                                 </div>
 
@@ -364,10 +364,10 @@ const Solutions = () => {
                     </p>
 
                     <a
-                        href="/register"
+                        href="/request-demo"
                         className="mt-9 inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-semibold text-[#635BFF] transition hover:-translate-y-1 hover:shadow-xl"
                     >
-                        Get Started Free <ArrowRightOutlined />
+                        Request a Demo <ArrowRightOutlined />
                     </a>
                 </div>
             </section>

@@ -466,10 +466,10 @@ const Pricing = () => {
                     </p>
 
                     <a
-                        href="/register"
+                        href="/request-demo"
                         className="mt-9 inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-semibold text-[#635BFF] transition hover:-translate-y-1 hover:shadow-xl"
                     >
-                        Get Started Free <ArrowRightOutlined />
+                        Request a Demo <ArrowRightOutlined />
                     </a>
                 </div>
             </section>
