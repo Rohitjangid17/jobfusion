@@ -18,6 +18,10 @@ import HelpArticleDetails from "./help/HelpArticleDetails";
 import RequestDemo from "./request-demo/RequestDemo";
 import Documentation from "./docs/Documentation";
 import OurTeam from "./team/OurTeam";
+import PrivacyPolicy from "./privacy-policy/PrivacyPolicy";
+import Terms from "./terms/Terms";
+import CookiePolicy from "./cookies/CookiePolicy";
+import Security from "./security/Security";
 
 const PagesRoutes = (
   <>
@@ -41,6 +45,10 @@ const PagesRoutes = (
     <Route path="/request-demo" element={<RequestDemo />} />
     <Route path="/docs" element={<Documentation />} />
     <Route path="/team" element={<OurTeam />} />
+    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+    <Route path="/terms" element={<Terms />} />
+    <Route path="/cookies" element={<CookiePolicy />} />
+    <Route path="/security" element={<Security />} />
   </>
 );
 
