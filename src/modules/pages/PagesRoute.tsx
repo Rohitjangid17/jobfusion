@@ -17,6 +17,7 @@ import HelpCenter from "./help/HelpCenter";
 import HelpArticleDetails from "./help/HelpArticleDetails";
 import RequestDemo from "./request-demo/RequestDemo";
 import Documentation from "./docs/Documentation";
+import OurTeam from "./team/OurTeam";
 
 const PagesRoutes = (
   <>
@@ -39,6 +40,7 @@ const PagesRoutes = (
     <Route path="/help-center/:id" element={<HelpArticleDetails />} />
     <Route path="/request-demo" element={<RequestDemo />} />
     <Route path="/docs" element={<Documentation />} />
+    <Route path="/team" element={<OurTeam />} />
   </>
 );
 
