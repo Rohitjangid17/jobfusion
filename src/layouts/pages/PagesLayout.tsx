@@ -89,7 +89,7 @@ const PagesLayout = () => {
                     {/* Desktop Actions */}
                     <div className="hidden items-center gap-3 lg:flex">
                         <Link
-                            to="/login"
+                            to="/auth/login"
                             className="px-4 py-2 text-sm font-semibold text-gray-700 no-underline transition-colors hover:text-[#635BFF]"
                         >
                             Sign In
@@ -151,7 +151,7 @@ const PagesLayout = () => {
                     <Button
                         block
                         size="large"
-                        href="/login"
+                        href="/auth/login"
                         onClick={closeMenu}
                         className="!h-11 !rounded-xl !font-semibold"
                     >
