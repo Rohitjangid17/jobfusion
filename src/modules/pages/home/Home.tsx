@@ -261,8 +261,8 @@ const DashboardPreview = () => {
               <div
                 key={item}
                 className={`mb-2 flex items-center gap-2 rounded-lg px-2 py-2 text-[10px] font-medium ${index === 0
-                    ? "bg-indigo-50 text-[#635BFF]"
-                    : "text-gray-500"
+                  ? "bg-indigo-50 text-[#635BFF]"
+                  : "text-gray-500"
                   }`}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-current" />
