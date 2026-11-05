@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Button, Drawer } from "antd";
 import { AppstoreOutlined, ArrowRightOutlined, GithubOutlined, InstagramOutlined, LinkedinOutlined, MenuOutlined, TwitterOutlined, } from "@ant-design/icons";
 
@@ -59,8 +59,8 @@ const PagesLayout = () => {
                 <div className="mx-auto flex h-[76px] max-w-[1280px] items-center justify-between px-5 sm:px-8 lg:px-10">
 
                     {/* Logo */}
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         className="flex items-center gap-2.5 no-underline"
                         aria-label="JobFusion Home"
                     >
@@ -71,29 +71,29 @@ const PagesLayout = () => {
                         <span className="text-[23px] font-bold tracking-tight text-gray-900">
                             Job<span className="text-[#635BFF]">Fusion</span>
                         </span>
-                    </a>
+                    </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden items-center gap-8 lg:flex">
                         {navigation.map((item) => (
-                            <a
+                            <Link   
                                 key={item.label}
-                                href={item.href}
+                                to={item.href}
                                 className="text-[14px] font-medium text-gray-600 transition-colors duration-200 hover:text-[#635BFF]"
                             >
                                 {item.label}
-                            </a>
+                            </Link>
                         ))}
                     </nav>
 
                     {/* Desktop Actions */}
                     <div className="hidden items-center gap-3 lg:flex">
-                        <a
-                            href="/login"
+                        <Link
+                            to="/login"
                             className="px-4 py-2 text-sm font-semibold text-gray-700 no-underline transition-colors hover:text-[#635BFF]"
                         >
                             Sign In
-                        </a>
+                        </Link>
 
                         <Button
                             type="primary"
@@ -136,14 +136,14 @@ const PagesLayout = () => {
             >
                 <nav className="flex flex-col gap-1">
                     {navigation.map((item) => (
-                        <a
+                        <Link
                             key={item.label}
-                            href={item.href}
+                            to={item.href}
                             onClick={closeMenu}
                             className="rounded-lg px-4 py-3 text-[15px] font-medium text-gray-700 no-underline transition-colors hover:bg-indigo-50 hover:text-[#635BFF]"
                         >
                             {item.label}
-                        </a>
+                        </Link>
                     ))}
                 </nav>
 
@@ -183,8 +183,8 @@ const PagesLayout = () => {
 
                         {/* Brand */}
                         <div className="lg:col-span-2">
-                            <a
-                                href="/"
+                            <Link
+                                to="/"
                                 className="mb-5 inline-flex items-center gap-2.5 no-underline"
                             >
                                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#635BFF] text-white shadow-md shadow-indigo-100">
@@ -194,7 +194,7 @@ const PagesLayout = () => {
                                 <span className="text-2xl font-bold tracking-tight text-gray-900">
                                     Job<span className="text-[#635BFF]">Fusion</span>
                                 </span>
-                            </a>
+                            </Link>
 
                             <p className="max-w-[340px] text-sm leading-7 text-gray-500">
                                 Simplify your hiring journey with smarter recruitment.
@@ -210,16 +210,16 @@ const PagesLayout = () => {
                                     { icon: <GithubOutlined />, href: "https://github.com/", label: "GitHub" },
                                     { icon: <InstagramOutlined />, href: "https://instagram.com/", label: "Instagram" },
                                 ].map((social) => (
-                                    <a
+                                    <Link
                                         key={social.label}
-                                        href={social.href}
+                                        to={social.href}
                                         target="_blank"
                                         rel="noreferrer"
                                         aria-label={social.label}
                                         className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 text-gray-500 transition-all duration-200 hover:border-[#635BFF] hover:bg-[#F5F3FF] hover:text-[#635BFF]"
                                     >
                                         {social.icon}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -234,12 +234,12 @@ const PagesLayout = () => {
                                 <ul className="flex flex-col gap-4">
                                     {section.links.map((link) => (
                                         <li key={link.label}>
-                                            <a
-                                                href={link.href}
+                                            <Link
+                                                to={link.href}
                                                 className="text-sm text-gray-500 no-underline transition-colors duration-200 hover:text-[#635BFF]"
                                             >
                                                 {link.label}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -259,12 +259,12 @@ const PagesLayout = () => {
                             </p>
                         </div>
 
-                        <a
-                            href="/register"
+                        <Link
+                            to="/register"
                             className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#635BFF] px-6 py-3 text-sm font-semibold text-white no-underline transition-all hover:bg-[#5148e5]"
                         >
                             Get Started <ArrowRightOutlined />
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -280,12 +280,12 @@ const PagesLayout = () => {
                             Built for better hiring. Made for growing teams.
                         </p>
 
-                        <a
-                            href="/contact"
+                        <Link
+                            to="/contact"
                             className="text-sm font-medium text-gray-600 no-underline transition-colors hover:text-[#635BFF]"
                         >
                             Contact Support
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </footer>

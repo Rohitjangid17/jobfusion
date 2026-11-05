@@ -5,6 +5,8 @@ import Solutions from "./solutions/Solutions";
 import Pricing from "./pricing/Pricing";
 import About from "./about/About";
 import Contact from "./contact/Contact";
+import Resources from "./resources/Resources";
+import ResourceDetails from "./resources/ResourceDetails";
 
 const PagesRoutes = (
   <>
@@ -15,6 +17,8 @@ const PagesRoutes = (
     <Route path="/pricing" element={<Pricing />} />
     <Route path="/about" element={<About />} />
     <Route path="/contact" element={<Contact />} />
+    <Route path="/resources" element={<Resources />} />
+    <Route path="/resources/:id" element={<ResourceDetails />} />
   </>
 );
 
