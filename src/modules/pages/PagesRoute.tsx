@@ -13,6 +13,7 @@ import Integrations from "./integrations/Integrations";
 import Careers from "./careers/Careers";
 import JobDetails from "./careers/JobDetails";
 import FAQ from "./faqs/FAQ";
+import HelpCenter from "./help/HelpCenter";
 
 const PagesRoutes = (
   <>
@@ -31,6 +32,7 @@ const PagesRoutes = (
     <Route path="/careers" element={<Careers />} />
     <Route path="/careers/:id" element={<JobDetails />} />
     <Route path="/faqs" element={<FAQ />} />
+    <Route path="/help" element={<HelpCenter />} />
   </>
 );
 
