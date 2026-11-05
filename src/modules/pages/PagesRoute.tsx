@@ -4,6 +4,7 @@ import Features from "./features/Features";
 import Solutions from "./solutions/Solutions";
 import Pricing from "./pricing/Pricing";
 import About from "./about/About";
+import Contact from "./contact/Contact";
 
 const PagesRoutes = (
   <>
@@ -13,6 +14,7 @@ const PagesRoutes = (
     <Route path="/solutions" element={<Solutions />} />
     <Route path="/pricing" element={<Pricing />} />
     <Route path="/about" element={<About />} />
+    <Route path="/contact" element={<Contact />} />
   </>
 );
 
