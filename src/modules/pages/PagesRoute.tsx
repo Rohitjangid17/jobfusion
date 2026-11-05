@@ -10,7 +10,9 @@ import ResourceDetails from "./resources/ResourceDetails";
 import Blog from "./blog/Blog";
 import BlogDetails from "./blog/BlogDetails";
 import Integrations from "./integrations/Integrations";
-import Career from "./careers/Careers";
+import Careers from "./careers/Careers";
+import JobDetails from "./careers/JobDetails";
+import FAQ from "./faqs/FAQ";
 
 const PagesRoutes = (
   <>
@@ -26,7 +28,9 @@ const PagesRoutes = (
     <Route path="/blog" element={<Blog />} />
     <Route path="/blog/:id" element={<BlogDetails />} />
     <Route path="/integrations" element={<Integrations />} />
-    <Route path="/careers" element={<Career />} />
+    <Route path="/careers" element={<Careers />} />
+    <Route path="/careers/:id" element={<JobDetails />} />
+    <Route path="/faqs" element={<FAQ />} />
   </>
 );
 
