@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Button, Drawer } from "antd";
-import { AppstoreOutlined, ArrowRightOutlined, GithubOutlined, InstagramOutlined, LinkedinOutlined, MenuOutlined, TwitterOutlined, } from "@ant-design/icons";
+import { AppstoreOutlined, ArrowRightOutlined, MenuOutlined } from "@ant-design/icons";
 
 const navigation = [
     { label: "Home", href: "/" },
@@ -76,7 +76,7 @@ const PagesLayout = () => {
                     {/* Desktop Navigation */}
                     <nav className="hidden items-center gap-8 lg:flex">
                         {navigation.map((item) => (
-                            <Link   
+                            <Link
                                 key={item.label}
                                 to={item.href}
                                 className="text-[14px] font-medium text-gray-600 transition-colors duration-200 hover:text-[#635BFF]"
@@ -203,7 +203,7 @@ const PagesLayout = () => {
                             </p>
 
                             {/* Social Links */}
-                            <div className="mt-7 flex items-center gap-3">
+                            {/* <div className="mt-7 flex items-center gap-3">
                                 {[
                                     { icon: <LinkedinOutlined />, href: "https://linkedin.com/", label: "LinkedIn" },
                                     { icon: <TwitterOutlined />, href: "https://twitter.com/", label: "Twitter" },
@@ -221,7 +221,7 @@ const PagesLayout = () => {
                                         {social.icon}
                                     </Link>
                                 ))}
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* Footer Navigation */}
