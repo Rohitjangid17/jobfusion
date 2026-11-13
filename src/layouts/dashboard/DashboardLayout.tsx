@@ -1,12 +1,6 @@
 
 import { Layout, Menu, Dropdown, Avatar, Badge, Button } from "antd";
-import {
-    BellOutlined,
-    DownOutlined,
-    LogoutOutlined,
-    UpOutlined,
-    UserOutlined,
-} from "@ant-design/icons";
+import { BellOutlined, DownOutlined, LogoutOutlined, UpOutlined, UserOutlined, } from "@ant-design/icons";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { MenuItem } from "../../shared/interfaces";
@@ -19,9 +13,9 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
-    console.log("menuItems: ", menuItems);
-
     const [pageTitle, setPageTitle] = useState<string>("");
+    const [canScrollUp, setCanScrollUp] = useState<boolean>(false);
+    const [canScrollDown, setCanScrollDown] = useState<boolean>(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -29,6 +23,19 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
     const menuRef = useRef<HTMLDivElement>(null);
 
     // Scroll menu on button click
+
+    const updateScrollButtons = () => {
+        const container = menuRef.current;
+
+        if (!container) return;
+
+        setCanScrollUp(container.scrollTop > 0);
+
+        setCanScrollDown(
+            container.scrollTop + container.clientHeight < container.scrollHeight - 1
+        );
+    };
+
     const handleMenuScroll = (direction: "up" | "down") => {
         const menuContainer = menuRef.current;
 
@@ -59,6 +66,22 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
             label: "Logout",
         },
     ];
+
+    useEffect(() => {
+        const container = menuRef.current;
+        if (!container) return;
+
+        updateScrollButtons();
+
+        const observer = new ResizeObserver(updateScrollButtons);
+        observer.observe(container);
+
+        const menu = container.querySelector(".ant-menu");
+        if (menu) {
+            observer.observe(menu);
+        }
+        return () => observer.disconnect();
+    }, [menuItems]);
 
     useEffect(() => {
         const currentMenu = [
@@ -101,6 +124,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                         <Button
                             type="text"
                             shape="circle"
+                            disabled={!canScrollUp}
                             icon={<UpOutlined className="!text-sm" />}
                             onClick={() => handleMenuScroll("up")}
                             className="!text-[#00163D] !bg-white !shadow-md hover:!shadow-lg hover:!bg-white transition-all duration-200"
@@ -111,6 +135,9 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                     <div
                         ref={menuRef}
                         className="sidebar-menu-scroll flex-1 min-h-0"
+                        onScroll={updateScrollButtons}
+                        onWheel={(e) => e.preventDefault()}
+                        onMouseDown={(e) => e.preventDefault()}
                     >
                         <Menu
                             mode="inline"
@@ -126,6 +153,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                         <Button
                             type="text"
                             shape="circle"
+                            disabled={!canScrollDown}
                             icon={<DownOutlined className="!text-sm" />}
                             onClick={() => handleMenuScroll("down")}
                             className="!text-[#00163D] !bg-white !shadow-md hover:!shadow-lg hover:!bg-white transition-all duration-200"
