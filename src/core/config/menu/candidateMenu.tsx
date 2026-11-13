@@ -1,68 +1,68 @@
-import { DashboardOutlined, SearchOutlined, FileDoneOutlined, SettingOutlined, IdcardOutlined, CustomerServiceOutlined, MessageOutlined, FileTextOutlined, ProfileOutlined, } from "@ant-design/icons";
-
+import { AppstoreOutlined, SearchOutlined, SolutionOutlined, SettingOutlined, CustomerServiceOutlined, MessageOutlined, FileTextOutlined, ReadOutlined, UserOutlined, } from "@ant-design/icons";
 import type { MenuItem } from "../../../shared/interfaces";
+import { SIDEBAR_ICON_FONT_SIZE } from "../../../shared/constant";
 
 export const CANDIDATE_MENU_ITEMS: MenuItem[] = [
     // Dashboard
     {
         key: "/candidate/dashboard",
-        icon: <DashboardOutlined style={{ fontSize: 18 }} />,
+        icon: <AppstoreOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Dashboard",
     },
 
-    // Find Jobs - Tabs inside page
+    // Find Jobs
     {
         key: "/candidate/jobs",
-        icon: <SearchOutlined style={{ fontSize: 18 }} />,
+        icon: <SearchOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Find Jobs",
     },
 
-    // Applications - Tabs inside page
+    // Applications
     {
         key: "/candidate/applications",
-        icon: <FileDoneOutlined style={{ fontSize: 18 }} />,
+        icon: <SolutionOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Applications",
     },
 
-    // Resume - Tabs inside page
+    // Resume
     {
         key: "/candidate/resume",
-        icon: <FileTextOutlined style={{ fontSize: 18 }} />,
+        icon: <FileTextOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Resume",
     },
 
     // Profile
     {
         key: "/candidate/profile",
-        icon: <IdcardOutlined style={{ fontSize: 18 }} />,
+        icon: <UserOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Profile",
     },
 
     // Messages
     {
         key: "/candidate/messages",
-        icon: <MessageOutlined style={{ fontSize: 18 }} />,
+        icon: <MessageOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Messages",
     },
 
     // Career Resources
     {
         key: "/candidate/career-resources",
-        icon: <ProfileOutlined style={{ fontSize: 18 }} />,
+        icon: <ReadOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Career Resources",
     },
 
     // Support
     {
         key: "/candidate/support",
-        icon: <CustomerServiceOutlined style={{ fontSize: 18 }} />,
+        icon: <CustomerServiceOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Support",
     },
 
     // Settings
     {
         key: "/candidate/settings",
-        icon: <SettingOutlined style={{ fontSize: 18 }} />,
+        icon: <SettingOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Settings",
     },
 ];

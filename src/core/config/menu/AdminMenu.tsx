@@ -1,138 +1,108 @@
-import { DashboardOutlined, UserOutlined, TeamOutlined, BankOutlined, ProfileOutlined, FileDoneOutlined, AppstoreOutlined, EnvironmentOutlined, BarChartOutlined, SettingOutlined, IdcardOutlined, CustomerServiceOutlined, ReadOutlined, SolutionOutlined, } from "@ant-design/icons";
+import { AppstoreOutlined, BankOutlined, TeamOutlined, IdcardOutlined, FileTextOutlined, SolutionOutlined, DatabaseOutlined, GlobalOutlined, ReadOutlined, CustomerServiceOutlined, FundOutlined, UserOutlined, SettingOutlined, BarChartOutlined, } from "@ant-design/icons";
 import type { MenuItem } from "../../../shared/interfaces";
+import { SIDEBAR_ICON_FONT_SIZE } from "../../../shared/constant";
 
 export const ADMIN_MENU_ITEMS: MenuItem[] = [
     {
         key: "/admin/dashboard",
-        icon: <DashboardOutlined style={{ fontSize: 18 }} />,
+        icon: <AppstoreOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Dashboard",
     },
-
-    // Companies
     {
         key: "/admin/companies",
-        icon: <BankOutlined style={{ fontSize: 18 }} />,
+        icon: <BankOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Companies",
     },
-
-    // Recruiters
     {
         key: "/admin/recruiters",
-        icon: <TeamOutlined style={{ fontSize: 18 }} />,
+        icon: <TeamOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Recruiters",
     },
-
-    // Candidates
     {
         key: "/admin/candidates",
-        icon: <UserOutlined style={{ fontSize: 18 }} />,
+        icon: <IdcardOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Candidates",
     },
-
-    // Jobs
     {
         key: "/admin/jobs",
-        icon: <ProfileOutlined style={{ fontSize: 18 }} />,
+        icon: <FileTextOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Jobs",
     },
-
-    // Applications
     {
         key: "/admin/applications",
-        icon: <FileDoneOutlined style={{ fontSize: 18 }} />,
+        icon: <SolutionOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Applications",
     },
-
-    // Master Data
     {
         key: "/admin/master",
-        icon: <AppstoreOutlined style={{ fontSize: 18 }} />,
+        icon: <DatabaseOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Master Data",
     },
-
-    // Locations
     {
         key: "/admin/locations",
-        icon: <EnvironmentOutlined style={{ fontSize: 18 }} />,
+        icon: <GlobalOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Locations",
     },
-
-    // Blogs
     {
         key: "/admin/blogs",
-        icon: <ReadOutlined style={{ fontSize: 18 }} />,
+        icon: <ReadOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Blogs",
     },
-
-    // Support
     {
         key: "/admin/support",
-        icon: <CustomerServiceOutlined style={{ fontSize: 18 }} />,
+        icon: <CustomerServiceOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Support",
     },
-
-    // Notifications
-    // {
-    //     key: "/admin/notifications",
-    //     icon: <BellOutlined style={{ fontSize: 18 }} />,
-    //     label: "Notifications",
-    // },
-
-    // Reports
     {
         key: "/admin/reports",
-        icon: <BarChartOutlined style={{ fontSize: 18 }} />,
+        icon: <FundOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Reports",
         children: [
             {
                 key: "/admin/reports/jobs",
-                icon: <ProfileOutlined />,
-                label: "Jobs",
+                icon: <FileTextOutlined />,
+                label: "Jobs Report",
             },
             {
                 key: "/admin/reports/candidates",
-                icon: <UserOutlined />,
-                label: "Candidates",
+                icon: <IdcardOutlined />,
+                label: "Candidates Report",
             },
             {
                 key: "/admin/reports/applications",
-                icon: <FileDoneOutlined />,
-                label: "Applications",
+                icon: <SolutionOutlined />,
+                label: "Applications Report",
             },
             {
                 key: "/admin/reports/recruiters",
                 icon: <TeamOutlined />,
-                label: "Recruiters",
+                label: "Recruiters Report",
             },
             {
                 key: "/admin/reports/companies",
                 icon: <BankOutlined />,
-                label: "Companies",
+                label: "Companies Report",
             },
             {
                 key: "/admin/reports/hiring",
-                icon: <SolutionOutlined />,
-                label: "Hiring",
+                icon: <BarChartOutlined />,
+                label: "Hiring Report",
             },
             {
                 key: "/admin/reports/job-category-location",
-                icon: <EnvironmentOutlined />,
-                label: "Job Category & Location",
+                icon: <GlobalOutlined />,
+                label: "Job Category & Location Report",
             },
         ],
     },
-
-    // Profile
     {
         key: "/admin/profile",
-        icon: <IdcardOutlined style={{ fontSize: 18 }} />,
+        icon: <UserOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Profile",
     },
-
-    // Settings
     {
         key: "/admin/settings",
-        icon: <SettingOutlined style={{ fontSize: 18 }} />,
-        label: "Settings",
+        icon: <SettingOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
+        label: "System Settings",
     },
 ];

@@ -1,0 +1,1 @@
+export const SIDEBAR_ICON_FONT_SIZE = { fontSize: 18 };

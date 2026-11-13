@@ -1,117 +1,86 @@
-import { DashboardOutlined, UserOutlined, TeamOutlined, BankOutlined, ProfileOutlined, FileDoneOutlined, AppstoreOutlined, EnvironmentOutlined, BarChartOutlined, SettingOutlined, IdcardOutlined, CustomerServiceOutlined, ReadOutlined, SolutionOutlined, SafetyOutlined, AuditOutlined, KeyOutlined, } from "@ant-design/icons";
-
+import { AppstoreOutlined, UserSwitchOutlined, SafetyCertificateOutlined, BankOutlined, TeamOutlined, IdcardOutlined, FileTextOutlined, SolutionOutlined, DatabaseOutlined, GlobalOutlined, ReadOutlined, CustomerServiceOutlined, FundOutlined, HistoryOutlined, UserOutlined, SettingOutlined, BarChartOutlined, } from "@ant-design/icons";
 import type { MenuItem } from "../../../shared/interfaces";
+import { SIDEBAR_ICON_FONT_SIZE } from "../../../shared/constant";
 
 export const SUPER_ADMIN_MENU_ITEMS: MenuItem[] = [
     {
         key: "/superadmin/dashboard",
-        icon: <DashboardOutlined style={{ fontSize: 18 }} />,
+        icon: <AppstoreOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Dashboard",
     },
-
-    // User Management
     {
         key: "/superadmin/admins",
-        icon: <SafetyOutlined style={{ fontSize: 18 }} />,
+        icon: <UserSwitchOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Admins",
     },
-
-    // Roles & Permissions
     {
         key: "/superadmin/roles-permissions",
-        icon: <KeyOutlined style={{ fontSize: 18 }} />,
+        icon: <SafetyCertificateOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Roles & Permissions",
     },
-
-    // Companies
     {
         key: "/superadmin/companies",
-        icon: <BankOutlined style={{ fontSize: 18 }} />,
+        icon: <BankOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Companies",
     },
-
-    // Recruiters
     {
         key: "/superadmin/recruiters",
-        icon: <TeamOutlined style={{ fontSize: 18 }} />,
+        icon: <TeamOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Recruiters",
     },
-
-    // Candidates
     {
         key: "/superadmin/candidates",
-        icon: <UserOutlined style={{ fontSize: 18 }} />,
+        icon: <IdcardOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Candidates",
     },
-
-    // Jobs
     {
         key: "/superadmin/jobs",
-        icon: <ProfileOutlined style={{ fontSize: 18 }} />,
+        icon: <FileTextOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Jobs",
     },
-
-    // Applications
     {
         key: "/superadmin/applications",
-        icon: <FileDoneOutlined style={{ fontSize: 18 }} />,
+        icon: <SolutionOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Applications",
     },
-
-    // Master Data
     {
         key: "/superadmin/master",
-        icon: <AppstoreOutlined style={{ fontSize: 18 }} />,
+        icon: <DatabaseOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Master Data",
     },
-
-    // Locations
     {
         key: "/superadmin/locations",
-        icon: <EnvironmentOutlined style={{ fontSize: 18 }} />,
+        icon: <GlobalOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Locations",
     },
-
-    // Blogs
     {
         key: "/superadmin/blogs",
-        icon: <ReadOutlined style={{ fontSize: 18 }} />,
+        icon: <ReadOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Blogs",
     },
-
-    // Support
     {
         key: "/superadmin/support",
-        icon: <CustomerServiceOutlined style={{ fontSize: 18 }} />,
+        icon: <CustomerServiceOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Support",
     },
-
-    // Notifications
-    // {
-    //     key: "/superadmin/notifications",
-    //     icon: <BellOutlined style={{ fontSize: 18 }} />,
-    //     label: "Notifications",
-    // },
-
-    // Reports
     {
         key: "/superadmin/reports",
-        icon: <BarChartOutlined style={{ fontSize: 18 }} />,
+        icon: <FundOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Reports",
         children: [
             {
                 key: "/superadmin/reports/jobs",
-                icon: <ProfileOutlined />,
+                icon: <FileTextOutlined />,
                 label: "Jobs Report",
             },
             {
                 key: "/superadmin/reports/candidates",
-                icon: <UserOutlined />,
+                icon: <IdcardOutlined />,
                 label: "Candidates Report",
             },
             {
                 key: "/superadmin/reports/applications",
-                icon: <FileDoneOutlined />,
+                icon: <SolutionOutlined />,
                 label: "Applications Report",
             },
             {
@@ -126,35 +95,29 @@ export const SUPER_ADMIN_MENU_ITEMS: MenuItem[] = [
             },
             {
                 key: "/superadmin/reports/hiring",
-                icon: <SolutionOutlined />,
+                icon: <BarChartOutlined />,
                 label: "Hiring Report",
             },
             {
                 key: "/superadmin/reports/job-category-location",
-                icon: <EnvironmentOutlined />,
+                icon: <GlobalOutlined />,
                 label: "Job Category & Location Report",
             },
         ],
     },
-
-    // Audit Logs
     {
         key: "/superadmin/audit-logs",
-        icon: <AuditOutlined style={{ fontSize: 18 }} />,
+        icon: <HistoryOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Audit Logs",
     },
-
-    // Profile
     {
         key: "/superadmin/profile",
-        icon: <IdcardOutlined style={{ fontSize: 18 }} />,
+        icon: <UserOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Profile",
     },
-
-    // Settings
     {
         key: "/superadmin/settings",
-        icon: <SettingOutlined style={{ fontSize: 18 }} />,
+        icon: <SettingOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "System Settings",
     },
 ];

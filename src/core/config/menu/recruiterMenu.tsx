@@ -1,53 +1,54 @@
-import { DashboardOutlined, SolutionOutlined, UserOutlined, FileDoneOutlined, CalendarOutlined, MessageOutlined, BarChartOutlined, FundProjectionScreenOutlined, PieChartOutlined, TeamOutlined, RiseOutlined, BankOutlined, IdcardOutlined, CustomerServiceOutlined, SettingOutlined, } from "@ant-design/icons";
+import { AppstoreOutlined, FileTextOutlined, IdcardOutlined, SolutionOutlined, CalendarOutlined, MessageOutlined, FundOutlined, FundProjectionScreenOutlined, PieChartOutlined, TeamOutlined, RiseOutlined, BankOutlined, UserOutlined, CustomerServiceOutlined, SettingOutlined, } from "@ant-design/icons";
 import type { MenuItem } from "../../../shared/interfaces";
+import { SIDEBAR_ICON_FONT_SIZE } from "../../../shared/constant";
 
 export const RECRUITER_MENU_ITEMS: MenuItem[] = [
     // Dashboard
     {
         key: "/recruiter/dashboard",
-        icon: <DashboardOutlined style={{ fontSize: 18 }} />,
+        icon: <AppstoreOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Dashboard",
     },
 
     // Jobs
     {
         key: "/recruiter/jobs",
-        icon: <SolutionOutlined style={{ fontSize: 18 }} />,
+        icon: <FileTextOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Jobs",
     },
 
     // Candidates
     {
         key: "/recruiter/candidates",
-        icon: <UserOutlined style={{ fontSize: 18 }} />,
+        icon: <IdcardOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Candidates",
     },
 
     // Applications
     {
         key: "/recruiter/applications",
-        icon: <FileDoneOutlined style={{ fontSize: 18 }} />,
+        icon: <SolutionOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Applications",
     },
 
     // Interviews
     {
         key: "/recruiter/interviews",
-        icon: <CalendarOutlined style={{ fontSize: 18 }} />,
+        icon: <CalendarOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Interviews",
     },
 
     // Messages
     {
         key: "/recruiter/messages",
-        icon: <MessageOutlined style={{ fontSize: 18 }} />,
+        icon: <MessageOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Messages",
     },
 
     // Reports
     {
         key: "/recruiter/reports",
-        icon: <BarChartOutlined style={{ fontSize: 18 }} />,
+        icon: <FundOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Reports",
         children: [
             {
@@ -81,28 +82,28 @@ export const RECRUITER_MENU_ITEMS: MenuItem[] = [
     // Company
     {
         key: "/recruiter/company-profile",
-        icon: <BankOutlined style={{ fontSize: 18 }} />,
+        icon: <BankOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Company Profile",
     },
 
     // Profile
     {
         key: "/recruiter/profile",
-        icon: <IdcardOutlined style={{ fontSize: 18 }} />,
+        icon: <UserOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Profile",
     },
 
     // Support
     {
         key: "/recruiter/support",
-        icon: <CustomerServiceOutlined style={{ fontSize: 18 }} />,
+        icon: <CustomerServiceOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Support",
     },
 
     // Settings
     {
         key: "/recruiter/settings",
-        icon: <SettingOutlined style={{ fontSize: 18 }} />,
+        icon: <SettingOutlined style={SIDEBAR_ICON_FONT_SIZE} />,
         label: "Settings",
     },
 ];
