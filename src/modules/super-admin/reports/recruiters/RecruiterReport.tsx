@@ -1,9 +1,7 @@
-import { CalendarOutlined, DeleteOutlined, DownloadOutlined, EditOutlined, EyeOutlined, MoreOutlined, SearchOutlined, } from "@ant-design/icons";
-import { Avatar, Button, Card, DatePicker, Dropdown, Input, Progress, Table, Tag, Tooltip } from "antd";
+import { DeleteOutlined, DownloadOutlined, EditOutlined, EyeOutlined, MoreOutlined} from "@ant-design/icons";
+import { Avatar, Button, DatePicker, Dropdown, Table, Tag, Tooltip } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import type { RecruiterReport } from "../../superadmin.interface";
-
-const { RangePicker } = DatePicker;
 
 const recruiters: RecruiterReport[] = [
     {
@@ -192,7 +190,7 @@ const columns: ColumnsType<RecruiterReport> = [
         title: "Actions",
         key: "actions",
         align: "right",
-        render: (_, record) => (
+        render: () => (
             <Dropdown
                 trigger={["click"]}
                 menu={{
