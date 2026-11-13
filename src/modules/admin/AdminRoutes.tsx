@@ -9,7 +9,6 @@ import Master from "./master/Master";
 import Locations from "./locations/Locations";
 import Blogs from "./blogs/Blogs";
 import Support from "./support/Support";
-import Notifications from "./notifications/Notifications";
 import Reports from "./reports/Reports";
 import Profile from "./profile/Profile";
 import Settings from "./settings/Settings";
@@ -27,7 +26,6 @@ const AdminRoutes = (
         <Route path="locations" element={<Locations />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="support" element={<Support />} />
-        <Route path="notifications" element={<Notifications />} />
         <Route path="reports" element={<Reports />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />

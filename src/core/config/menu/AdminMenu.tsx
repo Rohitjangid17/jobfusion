@@ -1,4 +1,4 @@
-import { DashboardOutlined, UserOutlined, TeamOutlined, BankOutlined, ProfileOutlined, FileDoneOutlined, AppstoreOutlined, EnvironmentOutlined, BellOutlined, BarChartOutlined, SettingOutlined, IdcardOutlined, CustomerServiceOutlined, ReadOutlined, SolutionOutlined, } from "@ant-design/icons";
+import { DashboardOutlined, UserOutlined, TeamOutlined, BankOutlined, ProfileOutlined, FileDoneOutlined, AppstoreOutlined, EnvironmentOutlined, BarChartOutlined, SettingOutlined, IdcardOutlined, CustomerServiceOutlined, ReadOutlined, SolutionOutlined, } from "@ant-design/icons";
 import type { MenuItem } from "../../../shared/interfaces";
 
 export const ADMIN_MENU_ITEMS: MenuItem[] = [
@@ -72,11 +72,11 @@ export const ADMIN_MENU_ITEMS: MenuItem[] = [
     },
 
     // Notifications
-    {
-        key: "/admin/notifications",
-        icon: <BellOutlined style={{ fontSize: 18 }} />,
-        label: "Notifications",
-    },
+    // {
+    //     key: "/admin/notifications",
+    //     icon: <BellOutlined style={{ fontSize: 18 }} />,
+    //     label: "Notifications",
+    // },
 
     // Reports
     {
