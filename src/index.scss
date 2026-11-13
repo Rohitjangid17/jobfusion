@@ -71,3 +71,34 @@
         }
     }
 }
+
+
+/* Sidebar layout */
+.sidebar-sider .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Sidebar menu scrolling */
+.sidebar-menu-scroll {
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebar-menu-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Remove Ant Design menu border */
+.sidebar-menu-scroll .ant-menu {
+    border-inline-end: none !important;
+}

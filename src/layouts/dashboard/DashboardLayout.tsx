@@ -1,7 +1,14 @@
-import { Layout, Menu, Dropdown, Avatar, Badge } from "antd";
-import { BellOutlined, DownOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
+
+import { Layout, Menu, Dropdown, Avatar, Badge, Button } from "antd";
+import {
+    BellOutlined,
+    DownOutlined,
+    LogoutOutlined,
+    UpOutlined,
+    UserOutlined,
+} from "@ant-design/icons";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { MenuItem } from "../../shared/interfaces";
 
 const { Header, Sider, Content } = Layout;
@@ -12,19 +19,35 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
-    console.log("menuItems: ", menuItems)
+    console.log("menuItems: ", menuItems);
+
     const [pageTitle, setPageTitle] = useState<string>("");
     const navigate = useNavigate();
     const location = useLocation();
 
+    // Menu scroll reference
+    const menuRef = useRef<HTMLDivElement>(null);
+
+    // Scroll menu on button click
+    const handleMenuScroll = (direction: "up" | "down") => {
+        const menuContainer = menuRef.current;
+
+        if (!menuContainer) return;
+
+        menuContainer.scrollBy({
+            top: direction === "up" ? -200 : 200,
+            behavior: "smooth",
+        });
+    };
+
     const profileItems = [
         {
             key: "profile",
-            label: <Link to="/admin/profile">My Profile</Link>
+            label: <Link to="/admin/profile">My Profile</Link>,
         },
         {
             key: "account",
-            label: <Link to="/admin/settings">Account Settings</Link>
+            label: <Link to="/admin/settings">Account Settings</Link>,
         },
         {
             type: "divider" as const,
@@ -38,22 +61,77 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
     ];
 
     useEffect(() => {
-        const currentMenu = [...menuItems, ...menuItems.flatMap(item => item.children ?? [])].find(item => item.key === location.pathname);
+        const currentMenu = [
+            ...menuItems,
+            ...menuItems.flatMap((item) => item.children ?? []),
+        ].find((item) => item.key === location.pathname);
+
         setPageTitle(currentMenu?.label ?? "Dashboard");
     }, [location.pathname, menuItems]);
 
     const handleProfileClick = () => {
-        console.log("profile cliked!")
-    }
+        console.log("profile clicked!");
+    };
 
     return (
         <Layout className="h-screen bg-gradient-to-tr from-[#eef2f7] via-[#f4f7fa] to-[#dce6f5] p-5 gap-5">
-            <Sider collapsible collapsed trigger={null} width={72} collapsedWidth={72} theme="light" className="shadow-sm overflow-hidden rounded-[20px]">
-                <div className="h-16 flex items-center justify-center border-b">
-                    <img src="../../../public/logo.png" />
-                </div>
 
-                <Menu mode="inline" selectedKeys={[location.pathname]} items={menuItems} onClick={({ key }) => navigate(key)} className="sidebar" />
+            <Sider
+                collapsible
+                collapsed
+                trigger={null}
+                width={72}
+                collapsedWidth={72}
+                theme="light"
+                className="shadow-sm overflow-hidden rounded-[20px] sidebar-sider"
+            >
+                <div className="flex h-full min-h-0 flex-col overflow-hidden">
+
+                    {/* Logo */}
+                    <div className="h-16 shrink-0 flex items-center justify-center border-b">
+                        <img
+                            src="/logo.png"
+                            alt="Logo"
+                            className="w-10 h-10 object-contain"
+                        />
+                    </div>
+
+                    {/* Scroll Up Button */}
+                    <div className="shrink-0 flex justify-center pt-2">
+                        <Button
+                            type="text"
+                            shape="circle"
+                            icon={<UpOutlined className="!text-sm" />}
+                            onClick={() => handleMenuScroll("up")}
+                            className="!text-[#00163D] !bg-white !shadow-md hover:!shadow-lg hover:!bg-white transition-all duration-200"
+                        />
+                    </div>
+
+                    {/* Scrollable Menu */}
+                    <div
+                        ref={menuRef}
+                        className="sidebar-menu-scroll flex-1 min-h-0"
+                    >
+                        <Menu
+                            mode="inline"
+                            selectedKeys={[location.pathname]}
+                            items={menuItems}
+                            onClick={({ key }) => navigate(key)}
+                            className="sidebar"
+                        />
+                    </div>
+
+                    {/* Scroll Down Button */}
+                    <div className="shrink-0 flex justify-center pb-2">
+                        <Button
+                            type="text"
+                            shape="circle"
+                            icon={<DownOutlined className="!text-sm" />}
+                            onClick={() => handleMenuScroll("down")}
+                            className="!text-[#00163D] !bg-white !shadow-md hover:!shadow-lg hover:!bg-white transition-all duration-200"
+                        />
+                    </div>
+                </div>
             </Sider>
 
             <Layout className="bg-transparent gap-4">
@@ -109,11 +187,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                                     type="button"
                                     className="flex h-10 w-10 items-center justify-center rounded-full border border-solid border-[#D1D6DC] bg-white text-[#475569] shadow-none transition hover:bg-[#F8FAFC]"
                                 >
-                                    <Badge
-                                        count={3}
-                                        size="small"
-                                        offset={[-2, 2]}
-                                    >
+                                    <Badge count={3} size="small" offset={[-2, 2]}>
                                         <BellOutlined className="text-lg" />
                                     </Badge>
                                 </button>
@@ -142,7 +216,6 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                                         <p className="mb-0 text-sm font-medium text-[#0F172A]">
                                             Admin User
                                         </p>
-
                                         <p className="mb-0 text-xs text-[#64748B]">
                                             Administrator
                                         </p>
@@ -154,6 +227,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                         </div>
                     </div>
                 </Header>
+
                 <Content>{children}</Content>
             </Layout>
         </Layout>
