@@ -1,8 +1,29 @@
 
-import { Layout, Menu, Dropdown, Avatar, Badge, Button } from "antd";
-import { BellOutlined, DownOutlined, LogoutOutlined, UpOutlined, UserOutlined, } from "@ant-design/icons";
-import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+    Layout,
+    Menu,
+    Dropdown,
+    Avatar,
+    Badge,
+    Button,
+    Select,
+} from "antd";
+
+import {
+    BellOutlined,
+    DownOutlined,
+    LogoutOutlined,
+    UpOutlined,
+    UserOutlined,
+    GlobalOutlined,
+    FullscreenOutlined,
+    FullscreenExitOutlined,
+} from "@ant-design/icons";
+
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import type { MenuItem } from "../../shared/interfaces";
 
 const { Header, Sider, Content } = Layout;
@@ -12,30 +33,32 @@ interface DashboardLayoutProps {
     children: ReactNode;
 }
 
-const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
-    const [pageTitle, setPageTitle] = useState<string>("");
-    const [canScrollUp, setCanScrollUp] = useState<boolean>(false);
-    const [canScrollDown, setCanScrollDown] = useState<boolean>(false);
+const languageOptions = [
+    { value: "en", label: "English", flag: "US" },
+    { value: "hi", label: "हिन्दी", flag: "IN" },
+    { value: "fr", label: "Français", flag: "FR" },
+    { value: "de", label: "Deutsch", flag: "DE" },
+    { value: "es", label: "Español", flag: "ES" },
+    { value: "ar", label: "العربية", flag: "SA" },
+];
+
+const DashboardLayout = ({
+    menuItems,
+    children,
+}: DashboardLayoutProps) => {
+    const { t, i18n } = useTranslation();
+
+    const [pageTitle, setPageTitle] = useState("");
+    const [isFullscreen, setIsFullscreen] = useState(
+        Boolean(document.fullscreenElement)
+    );
+
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Menu scroll reference
     const menuRef = useRef<HTMLDivElement>(null);
 
-    // Scroll menu on button click
-
-    const updateScrollButtons = () => {
-        const container = menuRef.current;
-
-        if (!container) return;
-
-        setCanScrollUp(container.scrollTop > 0);
-
-        setCanScrollDown(
-            container.scrollTop + container.clientHeight < container.scrollHeight - 1
-        );
-    };
-
+    // Sidebar menu scrolling
     const handleMenuScroll = (direction: "up" | "down") => {
         const menuContainer = menuRef.current;
 
@@ -47,14 +70,69 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
         });
     };
 
+    // Update page title
+    useEffect(() => {
+        const currentMenu = [
+            ...menuItems,
+            ...menuItems.flatMap((item) => item.children ?? []),
+        ].find((item) => item.key === location.pathname);
+
+        setPageTitle(currentMenu?.label ?? t("dashboard"));
+    }, [location.pathname, menuItems, t]);
+
+    // Track fullscreen state, including when user presses Escape
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(Boolean(document.fullscreenElement));
+        };
+
+        document.addEventListener(
+            "fullscreenchange",
+            handleFullscreenChange
+        );
+
+        return () => {
+            document.removeEventListener(
+                "fullscreenchange",
+                handleFullscreenChange
+            );
+        };
+    }, []);
+
+    // Toggle fullscreen
+    const handleFullscreenToggle = async () => {
+        try {
+            if (!document.fullscreenElement) {
+                await document.documentElement.requestFullscreen();
+            } else {
+                await document.exitFullscreen();
+            }
+        } catch (error) {
+            console.error("Fullscreen toggle failed:", error);
+        }
+    };
+
+    // Change application language
+    const handleLanguageChange = (language: string) => {
+        i18n.changeLanguage(language);
+    };
+
     const profileItems = [
         {
             key: "profile",
-            label: <Link to="/admin/profile">My Profile</Link>,
+            label: (
+                <Link to="/admin/profile">
+                    {t("myProfile")}
+                </Link>
+            ),
         },
         {
             key: "account",
-            label: <Link to="/admin/settings">Account Settings</Link>,
+            label: (
+                <Link to="/admin/settings">
+                    {t("accountSettings")}
+                </Link>
+            ),
         },
         {
             type: "divider" as const,
@@ -63,34 +141,9 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
             key: "logout",
             danger: true,
             icon: <LogoutOutlined />,
-            label: "Logout",
+            label: t("logout"),
         },
     ];
-
-    useEffect(() => {
-        const container = menuRef.current;
-        if (!container) return;
-
-        updateScrollButtons();
-
-        const observer = new ResizeObserver(updateScrollButtons);
-        observer.observe(container);
-
-        const menu = container.querySelector(".ant-menu");
-        if (menu) {
-            observer.observe(menu);
-        }
-        return () => observer.disconnect();
-    }, [menuItems]);
-
-    useEffect(() => {
-        const currentMenu = [
-            ...menuItems,
-            ...menuItems.flatMap((item) => item.children ?? []),
-        ].find((item) => item.key === location.pathname);
-
-        setPageTitle(currentMenu?.label ?? "Dashboard");
-    }, [location.pathname, menuItems]);
 
     const handleProfileClick = () => {
         console.log("profile clicked!");
@@ -99,6 +152,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
     return (
         <Layout className="h-screen bg-gradient-to-tr from-[#eef2f7] via-[#f4f7fa] to-[#dce6f5] p-5 gap-5">
 
+            {/* Sidebar */}
             <Sider
                 collapsible
                 collapsed
@@ -124,7 +178,6 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                         <Button
                             type="text"
                             shape="circle"
-                            disabled={!canScrollUp}
                             icon={<UpOutlined className="!text-sm" />}
                             onClick={() => handleMenuScroll("up")}
                             className="!text-[#00163D] !bg-white !shadow-md hover:!shadow-lg hover:!bg-white transition-all duration-200"
@@ -135,9 +188,6 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                     <div
                         ref={menuRef}
                         className="sidebar-menu-scroll flex-1 min-h-0"
-                        onScroll={updateScrollButtons}
-                        onWheel={(e) => e.preventDefault()}
-                        onMouseDown={(e) => e.preventDefault()}
                     >
                         <Menu
                             mode="inline"
@@ -153,16 +203,19 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                         <Button
                             type="text"
                             shape="circle"
-                            disabled={!canScrollDown}
                             icon={<DownOutlined className="!text-sm" />}
                             onClick={() => handleMenuScroll("down")}
                             className="!text-[#00163D] !bg-white !shadow-md hover:!shadow-lg hover:!bg-white transition-all duration-200"
                         />
                     </div>
+
                 </div>
             </Sider>
 
+            {/* Main Layout */}
             <Layout className="bg-transparent gap-4">
+
+                {/* Header */}
                 <Header className="!h-[72px] !bg-transparent !px-0 !py-3">
                     <div className="flex h-full w-full items-center justify-between gap-4">
 
@@ -176,6 +229,44 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                         {/* Header Actions */}
                         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
 
+                            {/* Language Selector */}
+                            <Select
+                                value={i18n.language?.split("-")[0] || "en"}
+                                onChange={handleLanguageChange}
+                                options={languageOptions}
+                                suffixIcon={<GlobalOutlined />}
+                                popupMatchSelectWidth={false}
+                                className="!rounded-xl !shadow-none !border !border-solid !border-[#D1D6DC]"
+                                size="large"
+                                variant="outlined"
+                                style={{ width: 125 }}
+                                aria-label={t("language")}
+                            />
+
+                            {/* Fullscreen Toggle */}
+                            <Button
+                                type="default"
+                                shape="circle"
+                                size="large"
+                                title={
+                                    isFullscreen
+                                        ? t("exitFullscreen")
+                                        : t("fullscreen")
+                                }
+                                aria-label={
+                                    isFullscreen
+                                        ? t("exitFullscreen")
+                                        : t("fullscreen")
+                                }
+                                icon={
+                                    isFullscreen
+                                        ? <FullscreenExitOutlined />
+                                        : <FullscreenOutlined />
+                                }
+                                onClick={handleFullscreenToggle}
+                                className="!h-10 !w-10 !border-[#D1D6DC] !bg-white !text-[#475569] hover:!bg-[#F8FAFC]"
+                            />
+
                             {/* Notifications */}
                             <Dropdown
                                 trigger={["click"]}
@@ -187,7 +278,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                                             label: (
                                                 <div className="w-[260px]">
                                                     <p className="mb-1 font-medium text-[#0F172A]">
-                                                        New recruiter registered
+                                                        {t("newRecruiter")}
                                                     </p>
                                                     <span className="text-xs text-[#64748B]">
                                                         5 minutes ago
@@ -200,7 +291,7 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                                             label: (
                                                 <div className="w-[260px]">
                                                     <p className="mb-1 font-medium text-[#0F172A]">
-                                                        New job requires approval
+                                                        {t("newJobApproval")}
                                                     </p>
                                                     <span className="text-xs text-[#64748B]">
                                                         20 minutes ago
@@ -213,9 +304,14 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
                             >
                                 <button
                                     type="button"
+                                    aria-label={t("notifications")}
                                     className="flex h-10 w-10 items-center justify-center rounded-full border border-solid border-[#D1D6DC] bg-white text-[#475569] shadow-none transition hover:bg-[#F8FAFC]"
                                 >
-                                    <Badge count={3} size="small" offset={[-2, 2]}>
+                                    <Badge
+                                        count={3}
+                                        size="small"
+                                        offset={[-2, 2]}
+                                    >
                                         <BellOutlined className="text-lg" />
                                     </Badge>
                                 </button>
@@ -242,21 +338,24 @@ const DashboardLayout = ({ menuItems, children }: DashboardLayoutProps) => {
 
                                     <div className="hidden text-left lg:block">
                                         <p className="mb-0 text-sm font-medium text-[#0F172A]">
-                                            Admin User
+                                            {t("adminUser")}
                                         </p>
                                         <p className="mb-0 text-xs text-[#64748B]">
-                                            Administrator
+                                            {t("administrator")}
                                         </p>
                                     </div>
 
                                     <DownOutlined className="hidden text-[10px] text-[#64748B] lg:block" />
                                 </button>
                             </Dropdown>
+
                         </div>
                     </div>
                 </Header>
 
+                {/* Page Content */}
                 <Content>{children}</Content>
+
             </Layout>
         </Layout>
     );
